@@ -40,7 +40,7 @@ jobs:
         shell: bash -l {0}
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Setup secrets & cache dates
       run: |
@@ -99,7 +99,7 @@ jobs:
         make test
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v3.2.1-node20
+      uses: actions/upload-artifact@v5
       with:
         name: logs-${{ matrix.inhouse }}
         path: |
@@ -124,7 +124,7 @@ jobs:
         shell: bash -l {0}
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     # Only run checks if package is not pinned
     - name: Check if inhouse package is pinned
@@ -180,7 +180,7 @@ jobs:
 
     - name: Upload artifacts
       if: env.pinned == 'false'
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: logs-${{ matrix.inhouse }}
         path: |
