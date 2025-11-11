@@ -5,7 +5,7 @@
 tutorial: false
 
 run:
-  name: "test" # use this to keep track of runs with different settings
+  name: "test_01" # use this to keep track of runs with different settings
   disable_progressbar: true
   shared_resources:
     policy: false
@@ -26,12 +26,12 @@ snapshots:
   end: "2020-01-08"
 
 enable:
-  retrieve: auto
-  retrieve_databundle: false
+  retrieve: true
+  retrieve_databundle: true
   retrieve_cost_data: false
   build_cutout: false
   custom_busmap: false
-  build_renewable_profiles: true
+  # build_renewable_profiles: true
   # retrieve_cutout: true
   # custom_busmap: false
   drop_leap_day: true
@@ -319,7 +319,7 @@ lines:
   reconnect_crimea: true
   under_construction: 'keep' # 'zero': set capacity to zero, 'remove': remove, 'keep': with full capacity for lines in grid extract
   dynamic_line_rating:
-    activate: true
+    activate: false
     max_line_rating: 1.3
 
 # docs in https://pypsa-eur.readthedocs.io/en/latest/configuration.html#transmission_projects
@@ -382,8 +382,8 @@ solving:
     BAU: false
     EQ: false
   solver:
-    name: highs
-    options: highs-simplex
+    name: gurobi
+    options: gurobi-default
 
   check_objective:
     enable: false
